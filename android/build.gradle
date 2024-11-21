@@ -23,10 +23,10 @@ apply plugin: 'com.android.library'
 
 android {
     namespace 'com.example.launchexternalapp'
-    compileSdkVersion 28
+    compileSdkVersion 33
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 21
     }
     lintOptions {
         disable 'InvalidPackage'
