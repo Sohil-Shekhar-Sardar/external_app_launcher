@@ -1,34 +1,50 @@
 group 'com.example.launchexternalapp'
 version '1.0'
 
+// Top-level build file
 buildscript {
     repositories {
         google()
         mavenCentral()
     }
-
     dependencies {
         classpath 'com.android.tools.build:gradle:8.1.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10" // Latest Kotlin plugin version
     }
 }
 
-rootProject.allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
+// Apply Android library plugin
 apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
     namespace 'com.example.launchexternalapp'
-    compileSdkVersion 33
+    compileSdkVersion 33 // Ensure compatibility with android:attr/lStar
 
     defaultConfig {
         minSdkVersion 21
+        targetSdkVersion 33 // Explicitly define target SDK
     }
+
     lintOptions {
         disable 'InvalidPackage'
     }
+
+    buildFeatures {
+        // Enable view binding if needed
+        viewBinding true
+    }
+}
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    // Core AndroidX dependencies
+    implementation "androidx.core:core-ktx:1.12.0" // Latest stable
+    implementation "androidx.appcompat:appcompat:1.6.1" // Ensure compatibility
+
+    // Optional: Other required libraries for the project
 }
